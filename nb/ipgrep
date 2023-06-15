@@ -1,0 +1,5 @@
+#!/bin/bash
+
+#ipam information straight to your terminal
+
+curl -s https://netbox.c3voc.de/api/ipam/ip-addresses/\?limit\=1000\&offset\=0 | jq -r '.results[] | "\(.address) \(.description)"' | fzf | cut -f1 -d/
